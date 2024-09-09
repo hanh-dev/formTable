@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="wrapper">
-            <h1 class="item heading">BANG DIEM CUA EM</h1>
+            <h1 class="heading">BANG DIEM CUA EM</h1>
             <div class="item semester">
                 <div class="semester1">
                     <label for="s1">Semester1</label>
@@ -23,9 +23,9 @@
             <div class="item year">
                 <label for="years">Year</label>
                 <select name="years" id="years">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
+                    <option value="" style="color:green">1</option>
+                    <option value="" style="color:blue" >2</option>
+                    <option value="" style="color:red">3</option>
                 </select>
             </div>
             <div class="item summarise">
@@ -36,6 +36,7 @@
                 <button id="check" class="left-button">OK</button>
                 <button id="resetAll">Cancle</button>
             </div>
+            <div id="display"></div>
     </div>
     <script src="./form.js"></script>
 </body>
