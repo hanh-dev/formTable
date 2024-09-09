@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #editText {
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <p id="editText">Hãy chỉnh sửa tôi sang một cái khác nào</p>
+    <script>
+        const editText = document.getElementById('editText')
+        editText.addEventListener('dblclick',function(){
+            const currentText = editText.textContent
+            const input = document.createElement('input')
+            input.type = 'text'
+            input.value = currentText
+            input.style.width = '300px'
+            editText.innerHTML = ''
+            editText.appendChild(input)
+            input.focus();
+            input.addEventListener('blur', function() {
+                editText.textContent = input.value;
+            });
+            input.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    editText.textContent = input.value;
+                }
+            });
+
+        })
+    </script>
+</body>
+</html>

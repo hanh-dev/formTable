@@ -1,0 +1,8 @@
+{
+    "name": "Nguyen Van A",
+    "age": 12,
+    "skills":["JavaScript","HTML","CSS"],
+    "address":{
+        "street":"123 Main"
+    }
+}
