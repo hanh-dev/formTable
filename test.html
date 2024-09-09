@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa nội dung với dblclick</title>
+    <style>
+        #editableText {
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <p id="editableText">Nhấp đúp chuột vào đây để chỉnh sửa nội dung.</p>
+
+    <script>
+        const editableText = document.getElementById('editableText');
+
+        editableText.addEventListener('dblclick', function() {
+            const currentText = editableText.textContent;
+            
+            // Tạo một ô nhập liệu để chỉnh sửa nội dung
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentText;
+            input.style.width = '300px';
+
+            // Thay thế đoạn văn bản bằng ô nhập liệu
+            editableText.innerHTML = '';
+            editableText.appendChild(input);
+
+            // Tự động focus vào ô nhập liệu khi nhấp đúp
+            input.focus();  
+
+            // Lưu lại nội dung mới khi người dùng nhấp ra ngoài ô nhập liệu
+            input.addEventListener('blur', function() {
+                editableText.textContent = input.value;
+            });
+
+            // Khi người dùng nhấn Enter, lưu lại nội dung mới
+            input.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    editableText.textContent = input.value;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
